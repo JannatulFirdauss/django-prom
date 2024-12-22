@@ -33,10 +33,19 @@ function App() {
     }
   };
 
+  const checkName = (nameToCheck) => {
+    let substring = "The Today New Student Name is: ";
+    if (nameToCheck.includes(substring)) {
+      return nameToCheck.replace(substring, "");
+    } else {
+      return nameToCheck;
+    }
+  };
+
   return (
     <div className="App">
       <div className="form-container">
-        <h2>Add Name For New Devops Student</h2>
+        <h2>Add a new to-do item</h2>
         <form onSubmit={handleAddName}>
           <input
             type="text"
@@ -45,16 +54,16 @@ function App() {
             placeholder="Enter name"
             required
           />
-          <button type="submit">Add Name</button>
+          <button type="submit">Add Item</button>
         </form>
       </div>
       <div className="table-container">
-        <h2>Saved Names</h2>
+        <h2>Saved To-Do Items</h2>
         <table>
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
+              <th>To-Do Item</th>
             </tr>
           </thead>
           <tbody>
@@ -62,7 +71,7 @@ function App() {
               savedNames.map((name) => (
                 <tr key={name.id}>
                   <td>{name.id}</td>
-                  <td>{name.saved_names}</td>
+                  <td>{checkName(name.saved_names)}</td>
                 </tr>
               ))
             ) : (
@@ -73,8 +82,12 @@ function App() {
           </tbody>
         </table>
       </div>
-
+      <footer>
+        <hr />
+        @AquaOps
+      </footer>
     </div>
+
   );
 }
 
