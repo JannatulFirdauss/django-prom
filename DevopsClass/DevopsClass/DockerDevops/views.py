@@ -32,7 +32,7 @@ class saved_names(views.APIView):
 
             p_data = {
                 "id": n_id,
-                "saved_names": "The Today New Student Name is: " + p_name,
+                "saved_names": p_name,
                 
             }
             savedNames.append(p_data)
