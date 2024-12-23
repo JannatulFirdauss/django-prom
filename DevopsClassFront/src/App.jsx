@@ -44,6 +44,14 @@ function App() {
 
   return (
     <div className="App">
+      <header>
+        <div id="three-dots">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <span>To-Do List</span>
+      </header>
       <div className="form-container">
         <h2>Add a new to-do item</h2>
         <form onSubmit={handleAddName}>
@@ -51,7 +59,7 @@ function App() {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Enter name"
+            placeholder="Enter item name"
             required
           />
           <button type="submit">Add Item</button>
@@ -59,13 +67,8 @@ function App() {
       </div>
       <div className="table-container">
         <h2>Saved To-Do Items</h2>
+        <div class="table-inner-container">
         <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>To-Do Item</th>
-            </tr>
-          </thead>
           <tbody>
             {savedNames.length > 0 ? (
               savedNames.map((name) => (
@@ -81,6 +84,7 @@ function App() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
       <footer>
         <hr />
