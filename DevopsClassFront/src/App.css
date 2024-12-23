@@ -44,13 +44,70 @@
 .App {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 30px;
   flex-direction: column;
+  background-color: #242424;
+  border-radius: 10px;
+  position: relative;
+}
+
+header {
+  background-color: #1a1a1a;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  text-align: left;
+  display: flex;
+}
+
+#three-dots {
+  margin-left: 10px;
+  display: flex;
+}
+
+#three-dots div {
+  --dot-size: 20px;
+  --dot-margin: 5px;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  margin-left:var(--dot-margin);
+  margin-right:var(--dot-margin);
+  background-color: #000;
+  border-radius: 50%;
+}
+
+#three-dots div:first-child {
+  background-color: #ba5761;
+}
+
+#three-dots div:nth-of-type(2) {
+  background-color: #ecca8c;
+}
+
+#three-dots div:nth-of-type(3) {
+  background-color: #abb68e;
+}
+
+header span {
+  margin-left: 40px;
+}
+
+body {
+  background-color: #000;
+  background-image: url('/wallpaper.jpg');
+  background-size: cover;
 }
 
 .form-container,
 .table-container {
   min-width: 800px;
+  margin-top: 20px;
 }
 
 form {
@@ -75,9 +132,15 @@ table {
   border-collapse: collapse;
 }
 
+.table-inner-container {
+  max-height: 250px;
+  overflow-y: scroll;
+  width: 100%;
+}
+
 th, td {
   padding: 10px;
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   text-align: left;
 }
 
@@ -87,7 +150,34 @@ tr td:first-child {
   text-align: center;
 }
 
+table tr:last-child td {
+  border-bottom: 0;
+}
+
 footer {
   margin-top: 40px;
   opacity: 0.5;
+}
+
+/* Style the scrollbar */
+::-webkit-scrollbar {
+  width: 10px;  /* Width of the vertical scrollbar */
+  height: 10px; /* Height of the horizontal scrollbar */
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #1a1a1a;  /* Light gray background */
+  border-radius: 10px;
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #3b3b3b; /* Darker gray */
+  border-radius: 10px;
+}
+
+/* Style the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Even darker gray when hovering */
 }
